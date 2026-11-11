@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       const response = await fetch(
-        "https://is-banana-rotten-server.onrender.com",
+        "https://is-banana-rotten-server.onrender.com/predict",
         {
           method: "POST",
           body: formData,
