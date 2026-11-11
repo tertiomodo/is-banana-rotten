@@ -23,10 +23,13 @@ document.addEventListener("DOMContentLoaded", () => {
     formData.append("file", image);
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/predict", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        "https://is-banana-rotten-server.onrender.com",
+        {
+          method: "POST",
+          body: formData,
+        },
+      );
 
       if (!response.ok) {
         const json = await response.json();
