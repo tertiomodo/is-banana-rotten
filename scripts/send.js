@@ -17,8 +17,6 @@ export default function send() {
       return;
     }
 
-    console.log(fileInput.value);
-
     if (
       lastRequest.name === image.name &&
       lastRequest.size === image.size &&
