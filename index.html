@@ -3,16 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style.css" />
-    <script defer src="./script.js"></script>
+    <link rel="stylesheet" href="./styles/main.css" />
+    <script type="module" src="./scripts/main.js"></script>
     <title>Is Banana Rotten?</title>
   </head>
   <body>
     <div class="app">
       <div class="wrapper">
-        <p data-message class="message"></p>
-        <input type="file" data-file-choice class="input" />
-        <button data-send-button class="button">Send</button>
+        <input
+          data-file-choice
+          class="input"
+          type="file"
+          accept="image/png, image/jpeg"
+        />
+        <p data-message class="message">Choose an image</p>
+        <button data-send-button class="button">Analyze</button>
       </div>
     </div>
   </body>
