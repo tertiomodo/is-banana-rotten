@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./images/logo.png" />
     <link rel="stylesheet" href="./styles/main.css" />
     <script type="module" src="./scripts/main.js"></script>
     <title>Is Banana Rotten?</title>
@@ -10,13 +11,22 @@
   <body>
     <div class="app">
       <div class="wrapper">
-        <input
-          data-file-choice
-          class="input"
-          type="file"
-          accept="image/png, image/jpeg"
-        />
-        <p data-message class="message">Choose an image</p>
+        <div class="picker-wrapper">
+          <label class="picker-label" for="image-picker">
+            <span data-picker-text class="picker-text">
+              Choose a banana image
+            </span>
+            <img data-image-preview class="preview-image" alt="" />
+          </label>
+          <input
+            data-picker-input
+            class="picker-input"
+            id="image-picker"
+            type="file"
+            accept="image/png, image/jpeg"
+          />
+        </div>
+        <p data-message class="message"></p>
         <button data-send-button class="button">Analyze</button>
       </div>
     </div>

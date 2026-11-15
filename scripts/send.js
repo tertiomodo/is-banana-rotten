@@ -1,19 +1,22 @@
 import getApiUrl from "./getApiUrl.js";
 import showMessage from "./showMessage.js";
 
-function buttonHandler({ button, isBlocked = false }) {
-  button.disabled = isBlocked;
-}
-
 export default function send() {
   const button = document.querySelector("[data-send-button]");
-  const fileInput = document.querySelector("[data-file-choice]");
+  const fileInput = document.querySelector("[data-picker-input]");
+  const imagePreview = document.querySelector("[data-image-preview]");
+  const pickerText = document.querySelector("[data-picker-text]");
+  let image = null;
   const lastRequest = {};
 
-  button.addEventListener("click", async () => {
-    const image = fileInput.files[0];
+  fileInput.addEventListener("change", () => {
+    image = fileInput.files[0];
+    pickerText.style = "display: none";
+    imagePreview.src = URL.createObjectURL(image);
+  });
 
-    if (image === undefined) {
+  button.addEventListener("click", async () => {
+    if (image === null || image === undefined) {
       return;
     }
 
@@ -31,7 +34,7 @@ export default function send() {
 
     try {
       showMessage("Analyzing your image...");
-      buttonHandler({ button, isBlocked: true });
+      button.disabled = true;
 
       const response = await fetch(`${getApiUrl()}/predict`, {
         method: "POST",
@@ -59,7 +62,7 @@ export default function send() {
       showMessage("The server isn't responding, try again later");
       return;
     } finally {
-      buttonHandler({ button });
+      button.disabled = false;
     }
   });
 }
