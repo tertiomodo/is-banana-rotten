@@ -11,6 +11,15 @@ export default function send() {
 
   fileInput.addEventListener("change", () => {
     image = fileInput.files[0];
+
+    if (
+      lastRequest.name !== image.name &&
+      lastRequest.size !== image.size &&
+      lastRequest.lastModified !== image.lastModified
+    ) {
+      showMessage("");
+    }
+
     pickerText.style = "display: none";
     imagePreview.src = URL.createObjectURL(image);
   });

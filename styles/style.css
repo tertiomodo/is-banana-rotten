@@ -47,7 +47,7 @@
     width: 25px;
     height: 25px;
     margin-left: 5px;
-    mask-image: url("../images/upload.svg");
+    mask-image: url("../assets/images/upload.svg");
     mask-repeat: no-repeat;
     mask-position: center;
     mask-size: contain;
@@ -104,7 +104,7 @@
     position: absolute;
     width: 30px;
     height: 30px;
-    mask-image: url("../images/loader.svg");
+    mask-image: url("../assets/images/loader.svg");
     mask-position: center;
     mask-repeat: no-repeat;
     mask-size: contain;
