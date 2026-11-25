@@ -60,7 +60,12 @@ export default function send() {
       let { pred, prob } = responseJson;
       const percent = Number((prob * 100).toFixed(1));
 
-      const message = `${pred}, probability: ${percent}%`;
+      let message = `${pred}, probability: ${percent}%`;
+
+      if (pred === "other") {
+        message = "It's not a banana!";
+      }
+
       lastRequest.name = image.name;
       lastRequest.size = image.size;
       lastRequest.lastModified = image.lastModified;
